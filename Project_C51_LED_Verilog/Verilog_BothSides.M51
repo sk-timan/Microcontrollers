@@ -1,0 +1,102 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        08/12/2018  13:19:00  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\MYSPACE\KEIL\C51\BIN\BL51.EXE Verilog_BothSides.obj TO Verilog_BothSides
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  Verilog_BothSides.obj (VERILOG_BOTHSIDES)
+  C:\MYSPACE\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  Verilog_BothSides (VERILOG_BOTHSIDES)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0033H     UNIT         ?PR?MAIN?VERILOG_BOTHSIDES
+            CODE    0036H     0011H     UNIT         ?PR?_DELAY?VERILOG_BOTHSIDES
+            CODE    0047H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   Verilog_BothSides (VERILOG_BOTHSIDES)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?VERILOG_BOTHSIDES
+
+?PR?MAIN?VERILOG_BOTHSIDES
+  +--> ?PR?_DELAY?VERILOG_BOTHSIDES
+
+
+
+SYMBOL TABLE OF MODULE:  Verilog_BothSides (VERILOG_BOTHSIDES)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        VERILOG_BOTHSIDES
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  C:003CH         PUBLIC        _delay
+  D:00B8H         PUBLIC        IP
+  C:0003H         PUBLIC        main
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/12/2018  13:19:00  PAGE 2
+
+
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  C:0038H         SYMBOL        L?0019
+  -------         PROC          L?0018
+  -------         ENDPROC       L?0018
+  C:0038H         SYMBOL        L?0019
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        i
+  C:003CH         LINE#         11
+  C:003CH         LINE#         12
+  C:003CH         LINE#         13
+  C:0046H         LINE#         14
+  -------         ENDPROC       _DELAY
+  -------         PROC          MAIN
+  -------         DO            
+  D:0005H         SYMBOL        i
+  -------         ENDDO         
+  C:0003H         LINE#         17
+  C:0003H         LINE#         18
+  C:0003H         LINE#         20
+  C:0006H         LINE#         21
+  C:0009H         LINE#         22
+  C:0009H         LINE#         23
+  C:0009H         LINE#         24
+  C:000BH         LINE#         25
+  C:0016H         LINE#         26
+  C:0019H         LINE#         27
+  C:001DH         LINE#         28
+  C:0025H         LINE#         29
+  C:0030H         LINE#         30
+  C:0033H         LINE#         31
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        VERILOG_BOTHSIDES
+
+Program Size: data=9.0 xdata=0 code=83
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

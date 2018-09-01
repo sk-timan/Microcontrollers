@@ -1,0 +1,34 @@
+C51 COMPILER V9.01   TEMPLATE                                                              08/10/2018 22:20:20 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE TEMPLATE
+OBJECT MODULE PLACED IN Template.OBJ
+COMPILER INVOKED BY: C:\MySpace\keil\C51\BIN\C51.EXE Template.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include "reg51.h"
+   2          
+   3          sbit led = P0^0;
+   4          
+   5          int main(void)
+   6          {
+   7   1              while (1){
+   8   2                      led=1;  
+   9   2              }
+  10   1              return 0;
+  11   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =      4    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

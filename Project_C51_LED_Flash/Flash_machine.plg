@@ -1,0 +1,33 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\MySpace\Project_C51_LED_Flash\Flash_machine.uvproj
+Project File Date:  08/10/2018
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling Flash.c...
+linking...
+Program Size: data=9.0 xdata=0 code=41
+"Flash_machine" - 0 Error(s), 0 Warning(s).
+compiling Flash.c...
+Flash.c - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=9.0 xdata=0 code=41
+"Flash_machine" - 0 Error(s), 0 Warning(s).
+compiling Flash.c...
+Flash.c - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=9.0 xdata=0 code=41
+creating hex file from "Flash_machine"...
+"Flash_machine" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling Flash_machine.c...
+linking...
+Program Size: data=9.0 xdata=0 code=41
+creating hex file from "Flash_machine"...
+"Flash_machine" - 0 Error(s), 0 Warning(s).

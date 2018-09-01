@@ -1,0 +1,89 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        08/10/2018  22:47:04  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\MYSPACE\KEIL\C51\BIN\BL51.EXE Flash_machine.obj TO Flash_machine
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  Flash_machine.obj (FLASH_MACHINE)
+  C:\MYSPACE\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  Flash_machine (FLASH_MACHINE)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     000EH     UNIT         ?PR?DELAY1S?FLASH_MACHINE
+            CODE    0011H     000CH     UNIT         ?PR?MAIN?FLASH_MACHINE
+            CODE    001DH     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   Flash_machine (FLASH_MACHINE)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?FLASH_MACHINE
+
+?PR?MAIN?FLASH_MACHINE
+  +--> ?PR?DELAY1S?FLASH_MACHINE
+
+
+
+SYMBOL TABLE OF MODULE:  Flash_machine (FLASH_MACHINE)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        FLASH_MACHINE
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  C:0011H         PUBLIC        main
+  B:0080H.0       PUBLIC        led
+  C:0003H         PUBLIC        delay1s
+  -------         PROC          DELAY1S
+  -------         DO            
+  D:0005H         SYMBOL        a
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/10/2018  22:47:04  PAGE 2
+
+
+  D:0006H         SYMBOL        b
+  D:0007H         SYMBOL        c
+  -------         ENDDO         
+  C:0003H         LINE#         6
+  C:0003H         LINE#         7
+  C:0003H         LINE#         9
+  C:0005H         LINE#         10
+  C:0007H         LINE#         11
+  C:000FH         LINE#         12
+  C:0010H         LINE#         13
+  -------         ENDPROC       DELAY1S
+  -------         PROC          MAIN
+  C:0011H         LINE#         15
+  C:0011H         LINE#         16
+  C:0011H         LINE#         17
+  C:0011H         LINE#         18
+  C:0013H         LINE#         19
+  C:0016H         LINE#         20
+  C:0018H         LINE#         21
+  C:001BH         LINE#         22
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        FLASH_MACHINE
+
+Program Size: data=9.0 xdata=0 code=41
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

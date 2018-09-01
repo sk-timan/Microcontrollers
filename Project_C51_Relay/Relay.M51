@@ -1,0 +1,67 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        08/14/2018  12:54:53  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\MYSPACE\KEIL\C51\BIN\BL51.EXE Relay.obj TO Relay
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  Relay.obj (RELAY)
+  C:\MYSPACE\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  Relay (RELAY)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     000CH     UNIT         ?C_C51STARTUP
+            CODE    000FH     0004H     UNIT         ?PR?MAIN?RELAY
+
+
+
+OVERLAY MAP OF MODULE:   Relay (RELAY)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?RELAY
+
+
+
+SYMBOL TABLE OF MODULE:  Relay (RELAY)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        RELAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  B:0090H.4       PUBLIC        Relay
+  D:0090H         PUBLIC        P1
+  C:000FH         PUBLIC        main
+  -------         PROC          MAIN
+  C:000FH         LINE#         6
+  C:000FH         LINE#         7
+  C:000FH         LINE#         8
+  C:0011H         LINE#         9
+  C:0011H         LINE#         10
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        RELAY
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/14/2018  12:54:53  PAGE 2
+
+
+
+Program Size: data=9.0 xdata=0 code=19
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

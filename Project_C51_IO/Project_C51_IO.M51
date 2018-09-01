@@ -1,0 +1,111 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        08/31/2018  11:49:09  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\MYSPACE\KEIL\C51\BIN\BL51.EXE Project_C51_IO.obj TO Project_C51_IO
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  Project_C51_IO.obj (PROJECT_C51_IO)
+  C:\MYSPACE\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  Project_C51_IO (PROJECT_C51_IO)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0024H     UNIT         ?PR?_HC595OUTPUT?PROJECT_C51_IO
+            CODE    0027H     001CH     UNIT         ?PR?MAIN?PROJECT_C51_IO
+            CODE    0043H     000CH     UNIT         ?C_C51STARTUP
+            CODE    004FH     000BH     UNIT         ?PR?_DELAY?PROJECT_C51_IO
+
+
+
+OVERLAY MAP OF MODULE:   Project_C51_IO (PROJECT_C51_IO)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?PROJECT_C51_IO
+
+?PR?MAIN?PROJECT_C51_IO
+  +--> ?PR?_HC595OUTPUT?PROJECT_C51_IO
+  +--> ?PR?_DELAY?PROJECT_C51_IO
+
+
+
+SYMBOL TABLE OF MODULE:  Project_C51_IO (PROJECT_C51_IO)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        PROJECT_C51_IO
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  B:00B0H.6       PUBLIC        SRCLK
+  D:00B0H         PUBLIC        P3
+  C:004FH         PUBLIC        _delay
+  C:0003H         PUBLIC        _hc595output
+  C:0027H         PUBLIC        main
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/31/2018  11:49:09  PAGE 2
+
+
+  B:00B0H.5       PUBLIC        RCLK
+  B:00B0H.4       PUBLIC        SER
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        i
+  C:004FH         LINE#         11
+  C:004FH         LINE#         12
+  C:004FH         LINE#         13
+  C:0059H         LINE#         14
+  -------         ENDPROC       _DELAY
+  -------         PROC          _HC595OUTPUT
+  D:0007H         SYMBOL        dat
+  -------         DO            
+  D:0006H         SYMBOL        i
+  -------         ENDDO         
+  C:0003H         LINE#         16
+  C:0003H         LINE#         17
+  C:0003H         LINE#         20
+  C:0005H         LINE#         21
+  C:0007H         LINE#         23
+  C:0009H         LINE#         24
+  C:0014H         LINE#         25
+  C:0018H         LINE#         27
+  C:001AH         LINE#         28
+  C:001BH         LINE#         29
+  C:001DH         LINE#         30
+  C:0021H         LINE#         32
+  C:0023H         LINE#         33
+  C:0024H         LINE#         34
+  C:0026H         LINE#         35
+  -------         ENDPROC       _HC595OUTPUT
+  -------         PROC          MAIN
+  -------         DO            
+  D:0005H         SYMBOL        LEDnum
+  -------         ENDDO         
+  C:0027H         LINE#         37
+  C:0027H         LINE#         38
+  C:0027H         LINE#         39
+  C:0029H         LINE#         40
+  C:0029H         LINE#         41
+  C:002EH         LINE#         42
+  C:003AH         LINE#         43
+  C:0041H         LINE#         44
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        PROJECT_C51_IO
+
+Program Size: data=9.0 xdata=0 code=90
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

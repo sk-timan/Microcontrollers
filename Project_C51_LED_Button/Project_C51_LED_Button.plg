@@ -1,0 +1,23 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\MySpace\Project_C51_LED_Button\Project_C51_LED_Button.uvproj
+Project File Date:  08/18/2018
+
+<h2>Output:</h2>
+compiling Project_C51_LED_Button.c...
+Project_C51_LED_Button.c - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=9.0 xdata=0 code=61
+creating hex file from "Project_C51_LED_Button"...
+"Project_C51_LED_Button" - 0 Error(s), 0 Warning(s).
+compiling Project_C51_LED_Button.c...
+Project_C51_LED_Button.c - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=9.0 xdata=0 code=52
+creating hex file from "Project_C51_LED_Button"...
+"Project_C51_LED_Button" - 0 Error(s), 0 Warning(s).

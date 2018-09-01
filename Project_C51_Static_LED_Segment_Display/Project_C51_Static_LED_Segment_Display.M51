@@ -1,0 +1,71 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        08/14/2018  22:02:11  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\MYSPACE\KEIL\C51\BIN\BL51.EXE Project_C51_Static_LED_Segment_Display.obj TO Project_C51_Static_LED_Segment_Display
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  Project_C51_Static_LED_Segment_Display.obj (PROJECT_C51_STATIC_LED_SEGMENT_DISPLAY)
+  C:\MYSPACE\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  Project_C51_Static_LED_Segment_Display (PROJECT_C51_STATIC_LED_SEGMENT_DISPLAY)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0010H     UNIT         ?CO?PROJECT_C51_STATIC_LED_SEGMENT_DISPLAY
+            CODE    0013H     000CH     UNIT         ?C_C51STARTUP
+            CODE    001FH     000AH     UNIT         ?PR?MAIN?PROJECT_C51_STATIC_LED_SEGMENT_DISPLAY
+
+
+
+OVERLAY MAP OF MODULE:   Project_C51_Static_LED_Segment_Display (PROJECT_C51_STATIC_LED_SEGMENT_DISPLAY)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?PROJECT_C51_STATIC_LED_SEGME...
+
+?PR?MAIN?PROJECT_C51_STATIC_LED_SEGME...
+  +--> ?CO?PROJECT_C51_STATIC_LED_SEGMENT_DI...
+
+
+
+SYMBOL TABLE OF MODULE:  Project_C51_Static_LED_Segment_Display (PROJECT_C51_STATIC_LED_SEGMENT_DISPLAY)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        PROJECT_C51_STATIC_LED_SEGMENT_DISPLAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  C:001FH         PUBLIC        main
+  C:0003H         PUBLIC        Static
+  -------         PROC          MAIN
+  C:001FH         LINE#         8
+  C:001FH         LINE#         9
+  C:001FH         LINE#         10
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/14/2018  22:02:11  PAGE 2
+
+
+  C:0027H         LINE#         11
+  C:0027H         LINE#         12
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        PROJECT_C51_STATIC_LED_SEGMENT_DISPLAY
+
+Program Size: data=9.0 xdata=0 code=41
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
