@@ -1,0 +1,108 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        09/06/2018  21:19:25  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\MYSPACE\KEIL\C51\BIN\BL51.EXE Project_C51_Bipolar_Motor.obj TO Project_C51_Bipolar_Motor
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  Project_C51_Bipolar_Motor.obj (PROJECT_C51_BIPOLAR_MOTOR)
+  C:\MYSPACE\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  Project_C51_Bipolar_Motor (PROJECT_C51_BIPOLAR_MOTOR)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0027H     UNIT         ?PR?MAIN?PROJECT_C51_BIPOLAR_MOTOR
+            CODE    002AH     0013H     UNIT         ?PR?_DELAY?PROJECT_C51_BIPOLAR_MOTOR
+            CODE    003DH     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   Project_C51_Bipolar_Motor (PROJECT_C51_BIPOLAR_MOTOR)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?PROJECT_C51_BIPOLAR_MOTOR
+
+?PR?MAIN?PROJECT_C51_BIPOLAR_MOTOR
+  +--> ?PR?_DELAY?PROJECT_C51_BIPOLAR_MOTOR
+
+
+
+SYMBOL TABLE OF MODULE:  Project_C51_Bipolar_Motor (PROJECT_C51_BIPOLAR_MOTOR)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        PROJECT_C51_BIPOLAR_MOTOR
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  C:0032H         PUBLIC        _delay
+  C:0003H         PUBLIC        main
+  B:0090H.1       PUBLIC        A_N
+  B:0090H.3       PUBLIC        B_N
+  B:0090H.0       PUBLIC        A_P
+  B:0090H.2       PUBLIC        B_P
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/06/2018  21:19:25  PAGE 2
+
+
+  C:002CH         SYMBOL        L?0009
+  C:002EH         SYMBOL        L?0010
+  -------         PROC          L?0008
+  -------         ENDPROC       L?0008
+  C:002CH         SYMBOL        L?0009
+  C:002EH         SYMBOL        L?0010
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        i
+  C:0032H         LINE#         13
+  C:0032H         LINE#         14
+  C:0032H         LINE#         15
+  C:003CH         LINE#         16
+  -------         ENDPROC       _DELAY
+  -------         PROC          MAIN
+  C:0003H         LINE#         18
+  C:0003H         LINE#         19
+  C:0003H         LINE#         20
+  C:0006H         LINE#         21
+  C:0006H         LINE#         22
+  C:0008H         LINE#         23
+  C:000AH         LINE#         24
+  C:000AH         LINE#         25
+  C:000AH         LINE#         26
+  C:000DH         LINE#         28
+  C:000FH         LINE#         29
+  C:0011H         LINE#         30
+  C:0011H         LINE#         31
+  C:0011H         LINE#         32
+  C:0014H         LINE#         34
+  C:0016H         LINE#         35
+  C:0018H         LINE#         36
+  C:001AH         LINE#         37
+  C:001CH         LINE#         38
+  C:001FH         LINE#         40
+  C:0021H         LINE#         41
+  C:0023H         LINE#         42
+  C:0025H         LINE#         43
+  C:0025H         LINE#         44
+  C:0028H         LINE#         45
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        PROJECT_C51_BIPOLAR_MOTOR
+
+Program Size: data=9.0 xdata=0 code=73
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

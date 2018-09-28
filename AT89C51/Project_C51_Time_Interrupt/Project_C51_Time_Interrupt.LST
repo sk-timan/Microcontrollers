@@ -1,0 +1,73 @@
+C51 COMPILER V9.01   PROJECT_C51_TIME_INTERRUPT                                            09/28/2018 14:44:29 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE PROJECT_C51_TIME_INTERRUPT
+OBJECT MODULE PLACED IN Project_C51_Time_Interrupt.OBJ
+COMPILER INVOKED BY: C:\MySpace\keil\C51\BIN\C51.EXE Project_C51_Time_Interrupt.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include "reg51.h"
+   2          
+   3          typedef unsigned int u16;
+   4          
+   5          sbit LED = P2^0;
+   6          
+   7          void Timer0Init(void)
+   8          {
+   9   1              TMOD |= 0x01;   //Ä£Ê½1£» »òÎ»ÔËËã£¬±£Ö¤Ç°Ãæ4Î»Êý¾Ý²»±ä£»
+  10   1      
+  11   1              TH0 = 0xfc;
+  12   1              TL0 = 0x18;     //FC18 = FFFF(65535)-1000(us)£¨»úÆ÷ÖÜÆÚÎª1us£©+1;
+  13   1      
+  14   1              ET0 = 1;    //´ò¿ªT0µÄÖÐ¶ÏÔÊÐí
+  15   1              EA = 1;         //´ò¿ªÖÐ¶Ï×Ü¿ª¹Ø
+  16   1              TR0 = 1;        //´ò¿ªT0¼ÆÊ±Æ÷
+  17   1      }
+  18          
+  19          void delay(u16 i)
+  20          {
+  21   1              while (i--);
+  22   1      }
+  23          
+  24          int main(void)
+  25          {
+  26   1              Timer0Init();                    //¹ÒÔØÔÚÍâ²»ÊÜÆäËûÒòËØÓ°Ïì
+  27   1              while (1){
+  28   2                      //Timer0Init();
+  29   2                      //delay(10000);  //¼ÆÊ±ÖÐ¶Ï¹ÒÔØÔÚÑ­»·ÌåÖ®ÄÚÊ±£¬ÖÐ¶ÏÆô¶¯»áÊÜµ½Ñ­»·Ê±¼äÓ°Ïì£¨ÈçÑ­»·Ê±¼äÌ«¶ÌÀ´²»¼°Ö´ÐÐÖÐ¶Ï²
+             -Ù×÷£¬Ö±½ÓÖØÆôÏÂÒ»´ÎÖÐ¶Ï£©
+  30   2              }
+  31   1              
+  32   1              return 0;
+  33   1      }
+  34          
+  35          void Timer0(void) interrupt 1
+  36          {
+  37   1              static u16 i;
+  38   1              TH0 = 0xfc;
+  39   1              TL0 = 0x18;
+  40   1              i++;
+  41   1              if (i == 1000){
+  42   2                      i = 0;
+  43   2                      LED = ~LED;
+  44   2              }
+  45   1      }
+  46          
+  47                          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     71    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+C51 COMPILER V9.01   PROJECT_C51_TIME_INTERRUPT                                            09/28/2018 14:44:29 PAGE 2   
+
+   DATA SIZE        =      2    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

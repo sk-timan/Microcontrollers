@@ -172,13 +172,13 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>15</ColumnNumber>
+      <ColumnNumber>2</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>1</TopLine>
-      <CurrentLine>22</CurrentLine>
+      <TopLine>22</TopLine>
+      <CurrentLine>47</CurrentLine>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\Project_C51_5040_Motor.c</PathWithFileName>
-      <FilenameWithoutPath>Project_C51_5040_Motor.c</FilenameWithoutPath>
+      <PathWithFileName>.\Project_C51_Bipolar_Motor.c</PathWithFileName>
+      <FilenameWithoutPath>Project_C51_Bipolar_Motor.c</FilenameWithoutPath>
     </File>
   </Group>
 
@@ -1526,10 +1526,10 @@
       <ActiveTab>0</ActiveTab>
       <Documents>
         <Doc>
-          <Name>.\Project_C51_5040_Motor.c</Name>
-          <ColumnNumber>15</ColumnNumber>
-          <TopLine>1</TopLine>
-          <CurrentLine>22</CurrentLine>
+          <Name>.\Project_C51_Bipolar_Motor.c</Name>
+          <ColumnNumber>2</ColumnNumber>
+          <TopLine>22</TopLine>
+          <CurrentLine>47</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>

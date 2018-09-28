@@ -172,13 +172,13 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>15</ColumnNumber>
+      <ColumnNumber>16</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>1</TopLine>
-      <CurrentLine>22</CurrentLine>
+      <TopLine>24</TopLine>
+      <CurrentLine>26</CurrentLine>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\Project_C51_5040_Motor.c</PathWithFileName>
-      <FilenameWithoutPath>Project_C51_5040_Motor.c</FilenameWithoutPath>
+      <PathWithFileName>.\Project_C51_Interrupt.c</PathWithFileName>
+      <FilenameWithoutPath>Project_C51_Interrupt.c</FilenameWithoutPath>
     </File>
   </Group>
 
@@ -1517,22 +1517,5 @@
       </Window>
     </View>
   </WinLayout>
-
-  <MDIGroups>
-    <Orientation>1</Orientation>
-    <ActiveMDIGroup>0</ActiveMDIGroup>
-    <MDIGroup>
-      <Size>100</Size>
-      <ActiveTab>0</ActiveTab>
-      <Documents>
-        <Doc>
-          <Name>.\Project_C51_5040_Motor.c</Name>
-          <ColumnNumber>15</ColumnNumber>
-          <TopLine>1</TopLine>
-          <CurrentLine>22</CurrentLine>
-        </Doc>
-      </Documents>
-    </MDIGroup>
-  </MDIGroups>
 
 </ProjectOpt>
