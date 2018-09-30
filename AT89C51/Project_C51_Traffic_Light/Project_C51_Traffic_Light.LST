@@ -1,0 +1,327 @@
+C51 COMPILER V9.01   PROJECT_C51_TRAFFIC_LIGHT                                             09/29/2018 12:08:57 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE PROJECT_C51_TRAFFIC_LIGHT
+OBJECT MODULE PLACED IN Project_C51_Traffic_Light.OBJ
+COMPILER INVOKED BY: C:\MySpace\keil\C51\BIN\C51.EXE Project_C51_Traffic_Light.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include "reg51.h"
+   2          
+   3          sbit LSA = P2^2;
+   4          sbit LSB = P2^3;
+   5          sbit LSC = P2^4;
+   6          
+   7          #define GPIO_DIG P0
+   8          #define GPIO_TRAFFIC P1
+   9          
+  10          sbit REDL = P1^0;
+  11          sbit GREENL = P1^1;
+  12          
+  13          sbit REDU = P1^2;
+  14          sbit GREENU = P1^4;
+  15          sbit YELLOWU = P1^3;
+  16          
+  17          sbit REDR = P1^5;
+  18          sbit GREENR = P1^7;
+  19          sbit YELLOWR = P1^6;
+  20          
+  21          sbit REDD = P3^0;
+  22          sbit GREEND = P3^1;
+  23          
+  24          typedef unsigned int u16;
+  25          typedef unsigned char u8;
+  26          
+  27          u8 code duan[17] = {0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,
+  28                                                  0x7f,0x6f,0x77,0x7c,0x39,0x5e,0x79,0x71};
+  29          
+  30          u8 DATADisplay[8];
+  31          u8 Second;
+  32          
+  33          
+  34          void delay(u16 i)
+  35          {
+  36   1              while (i--);
+  37   1      }
+  38          
+  39          void DynamicDisplay(void)
+  40          {
+  41   1              u8 i;
+  42   1              for (i=0; i<8; i++){
+  43   2                      switch (i){
+  44   3                              case 0:
+  45   3                                      LSA = 0;
+  46   3                                      LSB = 0;
+  47   3                                      LSC = 0;
+  48   3                                      break;
+  49   3                              case 1:
+  50   3                                      LSA = 1;
+  51   3                                      LSB = 0;
+  52   3                                      LSC = 0;
+  53   3                                      break;
+  54   3                              case 2:
+  55   3                                      LSA = 0;
+C51 COMPILER V9.01   PROJECT_C51_TRAFFIC_LIGHT                                             09/29/2018 12:08:57 PAGE 2   
+
+  56   3                                      LSB = 1;
+  57   3                                      LSC = 0;
+  58   3                                      break;
+  59   3                              case 3:
+  60   3                                      LSA = 1;
+  61   3                                      LSB = 1;
+  62   3                                      LSC = 0;
+  63   3                                      break;
+  64   3                              case 4:
+  65   3                                      LSA = 0;
+  66   3                                      LSB = 0;
+  67   3                                      LSC = 1;
+  68   3                                      break;
+  69   3                              case 5:
+  70   3                                      LSA = 1;
+  71   3                                      LSB = 0;
+  72   3                                      LSC = 1;
+  73   3                                      break;
+  74   3                              case 6:
+  75   3                                      LSA = 0;
+  76   3                                      LSB = 1;
+  77   3                                      LSC = 1;
+  78   3                                      break;
+  79   3                              case 7:
+  80   3                                      LSA = 1;
+  81   3                                      LSB = 1;
+  82   3                                      LSC = 1;
+  83   3                                      break;   
+  84   3                      }
+  85   2                      GPIO_DIG = DATADisplay[i];
+  86   2                      delay(100);
+  87   2                      GPIO_DIG = 0x00;        //ÏûÓ°
+  88   2              }
+  89   1      }
+  90          
+  91          
+  92          
+  93          void Timer0Init(void)
+  94          {
+  95   1              TMOD |= 0x01;   //Ä£Ê½1£» »òÎ»ÔËËã£¬±£Ö¤Ç°Ãæ4Î»Êý¾Ý²»±ä£»
+  96   1      
+  97   1              TH0 = 0xfc;
+  98   1              TL0 = 0x18;     //FC18 = FFFF(65535)-1000(us)£¨»úÆ÷ÖÜÆÚÎª1us£©+1;
+  99   1      
+ 100   1              ET0 = 1;    //´ò¿ªT0µÄÖÐ¶ÏÔÊÐí
+ 101   1              EA = 1;         //´ò¿ªÖÐ¶Ï×Ü¿ª¹Ø
+ 102   1              TR0 = 1;        //´ò¿ªT0¼ÆÊ±Æ÷
+ 103   1      }
+ 104          
+ 105          
+ 106          
+ 107          
+ 108          void Timer0(void) interrupt 1
+ 109          {
+ 110   1              static u16 i;
+ 111   1              TH0 = 0xfc;
+ 112   1              TL0 = 0x18;
+ 113   1              i++;
+ 114   1              if (i == 1000){
+ 115   2                      i = 0;
+ 116   2                      Second++;
+ 117   2              }
+C51 COMPILER V9.01   PROJECT_C51_TRAFFIC_LIGHT                                             09/29/2018 12:08:57 PAGE 3   
+
+ 118   1      }
+ 119          
+ 120          
+ 121          int main(void)
+ 122          {
+ 123   1              Second = 1;
+ 124   1              Timer0Init();
+ 125   1              
+ 126   1              while (1){
+ 127   2                      if (Second == 70){
+ 128   3                              Second = 1;
+ 129   3                      }
+ 130   2                      
+ 131   2                      if (Second <=30){               //Á½¸öifÎªÍ¬Ê±ÅÐ¶Ï£¬else if Îª°´Ë³ÐòÅÐ¶Ï£¨µ±Ä³¸öif»òelse if ²»ÔÙÂú×ãÊ±£¬ÒÀ´Î½øÐÐÏÂÃæµ
+             -ÄÅÐ¶Ï£©
+ 132   3                              DATADisplay[0] = 0x00;
+ 133   3                              DATADisplay[1] = 0x00;
+ 134   3                              DATADisplay[2] = duan[(30 - Second) / 10];
+ 135   3                              DATADisplay[3] = duan[(30 - Second) % 10];
+ 136   3                              DATADisplay[4] = 0x00;
+ 137   3                              DATADisplay[5] = 0x00;
+ 138   3                              DATADisplay[6] = DATADisplay[2];
+ 139   3                              DATADisplay[7] = DATADisplay[3];
+ 140   3                              DynamicDisplay();
+ 141   3                      
+ 142   3                              GPIO_TRAFFIC = 0xff;
+ 143   3                              REDD = 1;
+ 144   3                              GREEND = 1;
+ 145   3                              
+ 146   3                              GREENU = 0;     //±¦ÌïÂ·Í¨ÐÐ
+ 147   3                              delay(50);
+ 148   3                              GREENU = 1;
+ 149   3                              delay(200);
+ 150   3                              
+ 151   3                              GREENL = 0;
+ 152   3                              delay(50);
+ 153   3                              GREENL = 1;
+ 154   3                              delay(200);
+ 155   3      
+ 156   3                              REDR = 0;
+ 157   3                              delay(50);
+ 158   3                              REDR = 1;
+ 159   3                              delay(200);
+ 160   3      
+ 161   3                              REDD = 0;
+ 162   3                              delay(50);
+ 163   3                              REDD = 1;
+ 164   3                              delay(200);
+ 165   3                      }
+ 166   2                      
+ 167   2                      else if (Second <=35){
+ 168   3                              DATADisplay[0] = 0x00;
+ 169   3                              DATADisplay[1] = 0x00;
+ 170   3                              DATADisplay[2] = duan[(35 - Second) / 10];
+ 171   3                              DATADisplay[3] = duan[(35 - Second) % 10];
+ 172   3                              DATADisplay[4] = 0x00;
+ 173   3                              DATADisplay[5] = 0x00;
+ 174   3                              DATADisplay[6] = DATADisplay[2];
+ 175   3                              DATADisplay[7] = DATADisplay[3];
+ 176   3                              DynamicDisplay();
+ 177   3                      
+ 178   3                              GPIO_TRAFFIC = 0xff;
+C51 COMPILER V9.01   PROJECT_C51_TRAFFIC_LIGHT                                             09/29/2018 12:08:57 PAGE 4   
+
+ 179   3                              REDD = 1;
+ 180   3                              GREEND = 1;
+ 181   3                      
+ 182   3                              YELLOWU = 0;    //»ÆµÆµÈ´ý½»»»
+ 183   3                              delay(50);
+ 184   3                              YELLOWU = 1;
+ 185   3                              delay(200);
+ 186   3      
+ 187   3                              REDL = 0;
+ 188   3                              delay(50);
+ 189   3                              REDL = 1;
+ 190   3                              delay(200);
+ 191   3      
+ 192   3                              YELLOWR = 0;
+ 193   3                              delay(50);
+ 194   3                              YELLOWR = 1;
+ 195   3                              delay(200);
+ 196   3      
+ 197   3                              REDD= 0;
+ 198   3                              delay(50);
+ 199   3                              REDD = 1;
+ 200   3                              delay(200);
+ 201   3                      }
+ 202   2              
+ 203   2                      else if(Second <=65){
+ 204   3                              DATADisplay[0] = 0x00;
+ 205   3                              DATADisplay[1] = 0x00;
+ 206   3                              DATADisplay[2] = duan[(65 - Second) / 10];
+ 207   3                              DATADisplay[3] = duan[(65 - Second) % 10];
+ 208   3                              DATADisplay[4] = 0x00;
+ 209   3                              DATADisplay[5] = 0x00;
+ 210   3                              DATADisplay[6] = DATADisplay[2];
+ 211   3                              DATADisplay[7] = DATADisplay[3];
+ 212   3                              DynamicDisplay();
+ 213   3              
+ 214   3                              GPIO_TRAFFIC = 0xff;
+ 215   3                              REDD = 1;
+ 216   3                              GREEND = 1;
+ 217   3      
+ 218   3                              REDU = 0;       //Ç°½øÂ·Í¨ÐÐ
+ 219   3                              delay(50);
+ 220   3                              REDU = 1;
+ 221   3                              delay(200);
+ 222   3      
+ 223   3                              REDL = 0;
+ 224   3                              delay(50);
+ 225   3                              REDL = 1;
+ 226   3                              delay(200);
+ 227   3      
+ 228   3                              GREENR = 0;
+ 229   3                              delay(50);
+ 230   3                              GREENR = 1;
+ 231   3                              delay(200);
+ 232   3      
+ 233   3                              GREEND = 0;
+ 234   3                              delay(50);
+ 235   3                              GREEND = 1;
+ 236   3                              delay(200);
+ 237   3                      }
+ 238   2                      
+ 239   2                      else {
+ 240   3                              DATADisplay[0] = 0x00;
+C51 COMPILER V9.01   PROJECT_C51_TRAFFIC_LIGHT                                             09/29/2018 12:08:57 PAGE 5   
+
+ 241   3                              DATADisplay[1] = 0x00;
+ 242   3                              DATADisplay[2] = duan[(70 - Second) / 10];
+ 243   3                              DATADisplay[3] = duan[(70 - Second) % 10];
+ 244   3                              DATADisplay[4] = 0x00;
+ 245   3                              DATADisplay[5] = 0x00;
+ 246   3                              DATADisplay[6] = DATADisplay[2];
+ 247   3                              DATADisplay[7] = DATADisplay[3];
+ 248   3                              DynamicDisplay();
+ 249   3              
+ 250   3                              GPIO_TRAFFIC = 0xff;
+ 251   3                              REDD = 1;
+ 252   3                              GREEND = 1;
+ 253   3                      
+ 254   3                              YELLOWR = 0;    //»ÆµÆ×¼±¸
+ 255   3                              delay(50);
+ 256   3                              YELLOWR = 1;
+ 257   3                              delay(200);
+ 258   3      
+ 259   3                              REDL = 0;
+ 260   3                              delay(50);
+ 261   3                              REDL = 1;
+ 262   3                              delay(200);
+ 263   3      
+ 264   3                              YELLOWU = 0;
+ 265   3                              delay(50);
+ 266   3                              YELLOWU = 1;
+ 267   3                              delay(200);
+ 268   3      
+ 269   3                              REDD = 0;
+ 270   3                              delay(50);
+ 271   3                              REDD = 1;
+ 272   3                              delay(200);
+ 273   3                      }
+ 274   2              }
+ 275   1              
+ 276   1              return 0;
+ 277   1      }
+ 278                  
+ 279          
+ 280                                  
+ 281                                  
+ 282                                  
+ 283                                  
+ 284                          
+ 285          
+ 286          
+ 287                                  
+ 288                                  
+ 289                                  
+ 290                                  
+ 291                          
+ 292                  
+ 293                  
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    541    ----
+   CONSTANT SIZE    =     17    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     11    ----
+   IDATA SIZE       =   ----    ----
+C51 COMPILER V9.01   PROJECT_C51_TRAFFIC_LIGHT                                             09/29/2018 12:08:57 PAGE 6   
+
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

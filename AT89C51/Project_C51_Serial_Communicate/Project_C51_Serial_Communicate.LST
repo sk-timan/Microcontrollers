@@ -1,0 +1,62 @@
+C51 COMPILER V9.01   PROJECT_C51_SERIAL_COMMUNICATE                                        09/30/2018 17:25:23 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE PROJECT_C51_SERIAL_COMMUNICATE
+OBJECT MODULE PLACED IN Project_C51_Serial_Communicate.OBJ
+COMPILER INVOKED BY: C:\MySpace\keil\C51\BIN\C51.EXE Project_C51_Serial_Communicate.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include "reg51.h"
+   2          
+   3          typedef unsigned char u8;
+   4          
+   5          void USART_Init(void)   //串行口初始化
+   6          {
+   7   1              TMOD = 0x20;    //T1 模式3：自动补位
+   8   1              TH1 = 0xF3;
+   9   1              TL1 = 0xF3;
+  10   1              PCON = 0x80;    //比特率加倍
+  11   1              TR1 = 1;
+  12   1      
+  13   1              SCON = 0x50;    //串口工作方式 模式2 开启允许接收
+  14   1              ES = 1;         //RI／TI串行口中断请求标识 打开
+  15   1              EA = 1;         //总中断打开
+  16   1      }
+  17          
+  18          void USART() interrupt 4
+  19          {
+  20   1              u8 receive;
+  21   1              receive = SBUF; //为某个数据赋值SBUF 意义为取出SBUF接受的缓存
+  22   1              RI = 0;         //RI 为接收一段（8 bit）后自动置1发送中断，需软件置0
+  23   1              SBUF = receive; //给SBUF赋值为发送该值
+  24   1              
+  25   1              while (!TI){    //TI 为发送中断，未发送完成期间，为0，完成后为1；需软件置0
+  26   2              };
+  27   1              TI = 0;
+  28   1      }
+  29          
+  30          
+  31          int main(void)
+  32          {
+  33   1              USART_Init();
+  34   1              while (1){
+  35   2              };
+  36   1              
+  37   1              return 0;
+  38   1      }
+  39                  
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     50    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
